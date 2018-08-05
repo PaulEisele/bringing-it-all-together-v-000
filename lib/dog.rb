@@ -47,7 +47,9 @@ class Dog
     sql =<<-SQL
     UPDATE dogs
     SET name = ?, breed = ?
-    WHERE
+    WHERE id = ? 
+    SQL 
+    
 
   end
 end
