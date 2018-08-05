@@ -16,7 +16,7 @@ class Dog
       name TEXT,
       breed TEXT
     );
-    SQL 
+    SQL
     DB[:conn].excute(sql)
   end
 
@@ -40,3 +40,4 @@ class Dog
   def update
 
   end
+end
