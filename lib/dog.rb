@@ -47,9 +47,9 @@ class Dog
     sql =<<-SQL
     UPDATE dogs
     SET name = ?, breed = ?
-    WHERE id = ? 
-    SQL 
-    
+    WHERE id = ?
+    SQL
+    DB[:conn].execute(sql)
 
   end
 end
