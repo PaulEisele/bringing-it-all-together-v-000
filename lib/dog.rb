@@ -15,7 +15,7 @@ class Dog
       id INTEGER PRIMARY KEY,
       name TEXT,
       breed TEXT
-    );
+    )
     SQL
     DB[:conn].execute(sql)
   end
@@ -47,15 +47,10 @@ class Dog
   end
 
   def save
-    if self.id
-      update
-    else
-      sql =<<-SQL
-      INSERT INTO dogs(self.name, self.breed)
-      VALUES (?, ?)
-      SQL
-      self.id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
-  end
+    sql = "INSERT INTO dogs (name, breed) VALUES (?, ?)"
+    DB[:conn].execute(sql, self.name, self.breed)
+    @id = DB[:conn].execute("SELECT last_insert_rowid() FROM dogs")[0][0]
+    self
 end
 
   def update
