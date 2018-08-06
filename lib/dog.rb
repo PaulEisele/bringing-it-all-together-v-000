@@ -17,7 +17,7 @@ class Dog
       breed TEXT
     );
     SQL
-    DB[:conn].excute(sql)
+    DB[:conn].execute(sql)
   end
 
   def self.drop_table
