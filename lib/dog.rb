@@ -40,12 +40,15 @@ class Dog
   end
 
   def save
-    if self.id 
+    if self.id
       update
-    else 
+    else
       sql =<<-SQL
       INSERT INTO dogs(name, breed)
       VALUES (?, ?)
+      SQL
+      DB[:conn].excute("SELECT last_insert_rowid() FROM dogs")[0][0]
+      self
   end
 
   def update
