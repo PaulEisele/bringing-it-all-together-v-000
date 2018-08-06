@@ -44,10 +44,10 @@ class Dog
       update
     else
       sql =<<-SQL
-      INSERT INTO dogs(name, breed)
+      INSERT INTO dogs(self.name, self.breed)
       VALUES (?, ?)
       SQL
-      DB[:conn].excute("SELECT last_insert_rowid() FROM dogs")[0][0]
+      @id = DB[:conn].excute("SELECT last_insert_rowid() FROM dogs")[0][0]
       self
   end
 
