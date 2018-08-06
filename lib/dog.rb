@@ -39,8 +39,8 @@ class Dog
     sql =<<-SQL
     SELECT *
     FROM dogs
-    WHERE name = ? 
-    LIMIT 1; 
+    WHERE name = ?
+    LIMIT 1;
     SQL
     row = DB[:conn].execute(sql, name)[0]
     self.new_from_db(row)
