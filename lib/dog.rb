@@ -21,7 +21,9 @@ class Dog
   end
 
   def self.drop_table
-    sql = "DROP TABLE dogs"
+    sql =<<-SQL
+    DROP TABLE dogs
+    SQL
     DB[:conn].execute(sql)
   end
 
